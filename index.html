@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory of Computation</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTabs(event, 'Home')" id="defaultOpen">Home</button>
+        <button class="tablinks" onclick="openTabs(event, 'RgNfa')">RG &rarr; NFA</button>
+        <button class="tablinks" onclick="openTabs(event, 'NfaRg')">NFA &rarr; RG</button>
+        <button class="tablinks" onclick="openTabs(event, 'Help')">Help + Doc</button>
+    </div>
+
+    <div id="Home" class="tabContent">
+        <h4>TIC2151 THEORY OF COMPUTATION</h4>
+        <p>MUHAMMAD ZARIF IKHWAN BIN MOHD AZLAN 1171101721</br>
+            NUR SURAYA BINTI CHE ZULKIFLI 117100959</br>
+            NUR AIN BINTI BAHRUDIN 117101519</br>
+            AIMY NADIA BINTI ZAHARI 1171102160</br>
+        </p>
+        </br>
+        </br>
+        
+        <a href=# onclick = 'changeText(1)'><img src="images/dog1.jpg" alt="abe" class="leader"/></a>
+        <a href=# onclick = 'changeText(2)'><img src="images/dog2.jpg" alt="sue" class="suraya"></a>
+        <a href=# onclick = 'changeText(3)'><img src="images/dog3.jpg" alt="mek" class="ain"></a>
+        <a href=# onclick = 'changeText(4)'><img src="images/dog4.jpg" alt="aimy" class="aimy"></a>
+
+        </br>
+        </br>
+        <div id="display"></div>
+
+    </div>
+
+    <div id="RgNfa" class="tabContent">
+        <table id="table1"; cellspacing="10px" cellpadding="10%">
+            <caption class="caption">Enter Regular Grammar</caption>
+            <tr>
+                <th></th>
+                <th> Variable </th>
+                <th> a </th>
+                <th> b </th>
+                <th> c </th>
+                <th> &epsilon; </th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="chk"/></th>
+                <td class="v"><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" required></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="a" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="b" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="c" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="e" style="width: 15px;"></td>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="chk"/></th>
+                <td class="v"><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" required></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="a" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="b" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="c" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="e" style="width: 15px;"></td>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="chk"/></th>
+                <td class="v"><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" required></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="a" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="b" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="c" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="e" style="width: 15px;"></td>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="chk"/></th>
+                <td class="v"><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" required></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="a" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="b" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="c" style="width: 15px;"></td>
+                <td><input pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="e" style="width: 15px;"></td>
+            </tr>
+
+        </table>
+
+        <input type="button" value="Add Row" onclick="addRow('table1')" class="buttonAdd"/>
+        <input type="button" value="Delete Row" onclick="deleteRow('table1')"/>
+        <input type="button" value="Submit" onclick="submit()"/>
+
+    </div>
+
+    <div id="NfaRg" class="tabContent">
+        <h3>NFA to RG</h3>
+
+        <table>
+            <tr>
+                <td class="yellowCell">&sum;</td>
+                <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="document.getElementById('00').innerHTML=this.value;" required></td>
+                <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="document.getElementById('01').innerHTML=this.value;" required></td>
+                <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="document.getElementById('02').innerHTML=this.value;" required></td>
+                <td>&epsilon;</td>
+            </tr>
+            <tr> <td class="yellowCell">Q</td>
+                <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();" required></td
+                    ><td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();document.getElementById('20').innerHTML=this.value;"required></td>
+                    <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();document.getElementById('30').innerHTML=this.value;" required></td>
+                    <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();document.getElementById('40').innerHTML=this.value;" required></td>
+                    <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();document.getElementById('50').innerHTML=this.value;" required></td></tr>
+           
+           
+                    <tr>
+                <td class="yellowCell">start state</td>
+                <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();document.getElementById('10').innerHTML=this.value;" id="startState" required></td>
+
+            </tr>
+            <tr>
+
+                <td class="yellowCell">Final</td>
+                <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="this.value=this.value.toUpperCase();document.getElementById('50').innerHTML=this.value;" id = "finalState" required></td
+                    ><td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="" required></td>
+                    <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="" required></td>
+                    <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange=""  required></td>
+                    <td><input pattern="[a-zA-Z]" oninvalid="setCustomValidity('Please enter one alphabet only. ')" type="text" name="variable" style="width: 15px;" onchange="" required></td></tr>
+           
+
+
+            </tr>
+
+       
+        </table>
+        <input type="button" value="generate transition table" onclick="generateTransitionTable();"/> 
+<!--
+
+        <table id="transitionTable" style="display: none;">
+
+
+<tr ><td class="grayCell" id="1"></td>
+    <td class="grayCell" id="1">a</td>
+    <td class="grayCell" id="1">a</td>
+    <td class="grayCell" id="1">a</td class="grayCell">
+    <td class="grayCell" id="1">a</td></tr>
+<tr><td class="grayCell" id="1"></td id="1">
+    <td></td>
+    <td id="1"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+</tr>
+<tr><td class="grayCell"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+</tr>
+<tr><td class="grayCell" id="1"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+    <td id="1"></td>
+</tr>
+<tr><td class="grayCell"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td></tr>
+<tr><td class="grayCell"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td></tr>
+<tr><td class="grayCell"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td></tr>
+<tr><td class="grayCell"></td>
+    <td>
+
+</td>
+<td>
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr><td class="grayCell"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+
+        </table>
+
+    -->
+            <table id="nfaTable" cellpadding="10%" style="display: none;">
+                <caption class="caption">Transition Table<p>(Leave the boxes empty having no transitions)</p> </caption>
+
+
+                <tr>
+                    <th class="grayCell"></th>
+                    <th class="grayCell" id="00"> </th>
+                    <th class="grayCell" id="01">  </th>
+                    <th class="grayCell" id="02"> </th>
+                    <th class="grayCell" id="03"> &epsilon; </th>
+                  
+                </tr>
+                <tr>
+                    <th class="grayCell" id="10"></th>
+                    <td class="v"><input pattern="[a-zA-Z]*"  type="text" name="variable" style="width: 15px;" id="11" class="cap"  required></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 15px;" class="cap" id="12"></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap"id="13" ></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap" id="14" ></td>
+        
+                </tr>
+                <tr>
+                    <th class="grayCell" id="20"></th>
+                    <td class="v"><input pattern="[a-zA-Z]"  type="text" name="variable" style="width: 15px;" id="21" class="cap" required></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 15px;" class="cap" id="22"></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;"  class="cap" id="23" ></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap" id="24" ></td>
+
+                </tr>
+                <tr>
+                    <th class="grayCell" id="30"></th>
+                    <td class="v"><input pattern="[a-zA-Z]*"  type="text" name="variable" style="width: 15px;" id="31" class="cap"  required></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 15px;" class="cap" id="32"></td>
+                    <td><input pattern="[a-zA-Z]*" type="text" name="b" style="width: 15px;"  class="cap" id="33" ></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;"  class="cap" id="34" ></td>
+   
+                </tr>
+                <tr>
+                    <th class="grayCell" id="40"></th>
+                    <td class="v"><input pattern="[a-zA-Z]*"  type="text" name="variable" style="width: 15px;" class="cap" id= "41"  required></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 15px;" class="cap"  id="42"></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap" id="43" ></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap" id="44" ></td>
+
+                </tr>
+
+                <tr>
+                    <th class="grayCell" id="50"></th>
+                    <td class="v"><input pattern="[a-zA-Z]*"  type="text" name="variable" style="width: 15px;" class="cap" id= "51"  required></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 15px;" class="cap" id="52"></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap" id="53" ></td>
+                    <td><input pattern="[a-zA-Z]*"  type="text" name="b" style="width: 15px;" class="cap" id="54" ></td>
+
+                </tr>
+    
+            </table>
+
+        
+<!--
+            <input type="button" value="insert row" onclick="addRowInNfaTable('nfaTable')">
+            <input type="button" value="delete row" onclick="deleteRow('nfaTable')">
+        -->
+
+
+          
+    <table id =" checkTable"  >
+       
+<tr><td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 80px;" id="1" ></td>
+    <td id="2" width="30px"></td></tr>
+<tr><td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 80px;" id="3"></td>
+    <td id="4"></td></tr>
+<tr><td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 80px;" id="5"></td>
+    <td id="6"></td></tr>
+<tr><td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 80px;" id="7"></td>
+    <td id="8"></td></tr>
+<tr><td><input pattern="[a-zA-Z]*"  type="text" name="a" style="width: 80px;" id="9"></td>
+    <td id="ten"></td></tr>
+    </table>
+      <input type="button" value="check" onclick="getDataFromCheckTable();"/>  
+
+
+      <input type="button" value="convert nfa into rg" onclick="toRg('nfaTable')"/>
+
+        
+        <h1 id = "info" style="border: 2px solid black;"></h1>
+
+
+     
+        
+    </div>
+    
+
+
+
+    <div id="Help" class="tabContent">
+        <h3>Help and Doc</h3>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
