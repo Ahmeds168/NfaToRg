@@ -1,6 +1,7 @@
 var counter=1;
 var transitions;
 
+var q=1;
 
 function generateTransitionTable(){
 
